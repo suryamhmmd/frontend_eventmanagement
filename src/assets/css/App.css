@@ -66,3 +66,19 @@
 .button-homepage{
 	margin-bottom: 30px;
 }
+
+.frame-login{
+    background-color: #363755;
+    width: 400px;
+    margin-top: 150px;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+.frame-login h1{
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+	text-align: center;
+	padding:10px;
+}
