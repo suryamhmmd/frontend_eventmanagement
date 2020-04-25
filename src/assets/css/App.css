@@ -1,0 +1,54 @@
+.navbar{
+    background-color: #363755;
+}
+
+.logo_navbar {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.navbar-link{
+	font-size: 20px;
+    color: rgba(245,245,245,1);
+	/* text-decoration: true; */
+}
+
+.home-page{
+
+    width: 100%;
+	height: 100vh;
+	background: linear-gradient(180deg, rgba(211,217,233,1) 0%, rgba(126,136,165,1) 100%);
+	overflow: hidden;
+	--web-view-name: Home Page;
+	--web-view-id: Home_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+
+.path-31{
+    background-color: #363755;
+    width: 800px;
+    height: 380px;
+    margin-top: 150px;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+.path-31 h1{
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+}
+
+.button{
+	width: 160px;
+	height: 50px;
+	border-radius: 13px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.button-homepage{
+	margin-bottom: 30px;
+}

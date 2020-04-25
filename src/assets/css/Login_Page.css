@@ -1,0 +1,342 @@
+.mediaViewInfo {
+	--web-view-name: Login Page;
+	--web-view-id: Login_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Login_Page;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Login_Page {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background: linear-gradient(180deg, rgba(126,136,165,1) 0%, rgba(157,164,183,1) 100%);
+	overflow: hidden;
+	--web-view-name: Login Page;
+	--web-view-id: Login_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#Group_5 {
+	position: absolute;
+	width: 705px;
+	height: 821px;
+	left: 608px;
+	top: 130px;
+	overflow: visible;
+}
+.Path_29 {
+	overflow: visible;
+	position: absolute;
+	width: 705px;
+	height: 752px;
+	left: 0px;
+	top: 69px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_21 {
+	filter: drop-shadow(0px 9px 10px rgba(0, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 630.782px;
+	height: 125.578px;
+	left: 52px;
+	top: 275px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#__input_text__username {
+	position: absolute;
+	left: 180px;
+	top: 309px;
+	overflow: visible;
+	width: 196px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(51,40,82,1);
+}
+.Path_23 {
+	overflow: visible;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	left: 71px;
+	top: 283px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Icon_material_email {
+	overflow: visible;
+	position: absolute;
+	width: 50.625px;
+	height: 40.5px;
+	left: 85.375px;
+	top: 302.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_24 {
+	filter: drop-shadow(0px 9px 10px rgba(0, 0, 0, 0.161));
+	overflow: visible;
+	position: absolute;
+	width: 630.782px;
+	height: 125.578px;
+	left: 52px;
+	top: 395px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_25 {
+	overflow: visible;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	left: 71px;
+	top: 403px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Icon_awesome_key {
+	overflow: visible;
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	left: 92.6px;
+	top: 425px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#__input_text__username_dl {
+	position: absolute;
+	left: 180px;
+	top: 426px;
+	overflow: visible;
+	width: 120px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(51,40,82,1);
+}
+.Path_26 {
+	overflow: visible;
+	position: absolute;
+	width: 356px;
+	height: 104px;
+	left: 174px;
+	top: 590px;
+	transform: matrix(1,0,0,1,0,0);
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login_Page___1.html;
+	cursor: pointer;
+}
+#Login {
+	position: absolute;
+	left: 279px;
+	top: 612px;
+	overflow: visible;
+	width: 134px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50px;
+	color: rgba(51,40,82,1);
+}
+.Rectangle_12 {
+	position: absolute;
+	overflow: visible;
+	width: 34px;
+	height: 32px;
+	left: 91px;
+	top: 498px;
+}
+#Remember_me {
+	position: absolute;
+	left: 130px;
+	top: 502px;
+	overflow: visible;
+	width: 121px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(230,229,229,1);
+}
+#Forgot_Password_ {
+	position: absolute;
+	left: 472px;
+	top: 502px;
+	overflow: visible;
+	width: 160px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(230,229,229,1);
+}
+#Don_t_have_a_account__Sign_Up {
+	position: absolute;
+	left: 205px;
+	top: 726px;
+	overflow: visible;
+	width: 295px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Register.html;
+	cursor: pointer;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(224,228,239,1);
+}
+.Path_27 {
+	overflow: visible;
+	position: absolute;
+	width: 139px;
+	height: 139px;
+	left: 283px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Icon_awesome_user_circle {
+	overflow: visible;
+	position: absolute;
+	width: 137.112px;
+	height: 137.113px;
+	left: 285.888px;
+	top: 2.756px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Event_Management_User_Login {
+	position: absolute;
+	left: 168px;
+	top: 155px;
+	overflow: visible;
+	width: 369px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+}
+.Path_28 {
+	overflow: visible;
+	position: absolute;
+	width: 1920px;
+	height: 92px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Login_dw {
+	position: absolute;
+	left: 1730px;
+	top: 32px;
+	overflow: visible;
+	width: 81px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+	text-decoration: true;
+}
+#Register {
+	position: absolute;
+	left: 1570px;
+	top: 28px;
+	overflow: visible;
+	width: 122px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+	text-decoration: true;
+}
+#Contact_us {
+	position: absolute;
+	left: 1375px;
+	top: 28px;
+	overflow: visible;
+	width: 157px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+	text-decoration: true;
+}
+#Product {
+	position: absolute;
+	left: 1222px;
+	top: 28px;
+	overflow: visible;
+	width: 115px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+	text-decoration: true;
+}
+#Event_Management_App {
+	position: absolute;
+	left: 25px;
+	top: 28px;
+	overflow: visible;
+	width: 343px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+.Path_34 {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 92px;
+	left: 380.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}

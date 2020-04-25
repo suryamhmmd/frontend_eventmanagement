@@ -1,0 +1,213 @@
+.mediaViewInfo {
+	--web-view-name: Home Page;
+	--web-view-id: Home_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Home_Page;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Home_Page {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background: linear-gradient(180deg, rgba(211,217,233,1) 0%, rgba(126,136,165,1) 100%);
+	overflow: hidden;
+	--web-view-name: Home Page;
+	--web-view-id: Home_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+.Path_31 {
+	overflow: visible;
+	position: absolute;
+	width: 1068px;
+	height: 599px;
+	left: 414px;
+	top: 241px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_30 {
+	overflow: visible;
+	position: absolute;
+	width: 1920px;
+	height: 92px;
+	left: -2px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Login {
+	position: absolute;
+	left: 1728px;
+	top: 29px;
+	overflow: visible;
+	width: 80px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login_Page.html;
+	cursor: pointer;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(245,245,245,1);
+	text-decoration: true;
+}
+#Register {
+	position: absolute;
+	left: 1568px;
+	top: 25px;
+	overflow: visible;
+	width: 116px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Register.html;
+	cursor: pointer;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(245,245,245,1);
+	text-decoration: true;
+}
+#Contact_us {
+	position: absolute;
+	left: 1373px;
+	top: 25px;
+	overflow: visible;
+	width: 150px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(245,245,245,1);
+	text-decoration: true;
+}
+#Product {
+	position: absolute;
+	left: 1220px;
+	top: 25px;
+	overflow: visible;
+	width: 112px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(245,245,245,1);
+	text-decoration: true;
+}
+#Event_Management_App {
+	position: absolute;
+	left: 23px;
+	top: 25px;
+	overflow: visible;
+	width: 341px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(245,245,245,1);
+}
+.Path_33 {
+	overflow: visible;
+	position: absolute;
+	width: 306px;
+	height: 95px;
+	left: 569px;
+	top: 684px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_32 {
+	overflow: visible;
+	position: absolute;
+	width: 306px;
+	height: 95px;
+	left: 998px;
+	top: 684px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Register_dl {
+	position: absolute;
+	left: 645px;
+	top: 704px;
+	overflow: visible;
+	width: 155px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Register.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(51,40,82,1);
+}
+#Login_dm {
+	position: absolute;
+	left: 1098px;
+	top: 704px;
+	overflow: visible;
+	width: 107px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login_Page.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(51,40,82,1);
+}
+.Line_2 {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 92px;
+	left: 374.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Aplikasi_yang_membantu__dalam_ {
+	position: absolute;
+	left: 510px;
+	top: 357px;
+	overflow: visible;
+	width: 877px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: HelveticaNeue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 60px;
+	color: rgba(255,255,255,1);
+}
