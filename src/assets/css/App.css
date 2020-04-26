@@ -83,6 +83,11 @@
 	padding:10px;
 }
 
+.frame-event{
+	background-color: #363755;
+  width: 400px;
+}
+  
 .frame-profile{
 	background-color: #363755;
     width: 800px;
