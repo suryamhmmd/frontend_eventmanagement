@@ -24,7 +24,7 @@ export class HomePage extends Component {
                 </div>
             )
         }else{
-            return <Redirect to="/welcompe_page"/>
+            return <Redirect to="/welcome_page"/>
         }
     }
 }
