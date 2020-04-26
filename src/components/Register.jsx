@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Header from './Header'
 import {Link, Redirect} from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
@@ -8,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Swal from 'sweetalert2'
 
 import axios from '../config/axios'
+import {connect} from 'react-redux'
 
 const GreenCheckbox = withStyles({
     root: {
@@ -64,7 +64,6 @@ export class Register extends Component {
                 timer: 1500
             })
             this.setState({status:true})
-
         })
         .catch(err=>{
             console.log(err)
@@ -89,44 +88,54 @@ export class Register extends Component {
 
     render() {
 
-        if(this.state.status){
-            return <Redirect to="/"/>
-        }
-
-        return (
-            <div className="home-page">
-                <Header/>
-                <div className="d-flex justify-content-center">
-                    <div className="frame-register d-flex flex-column alignite px-5 align-items-center">
-                        <h1 className="text-center">Event Management User Register</h1>
-                        {this.renderTextField('nama', 'Full Name')}
-                        {this.renderTextField('email', 'Email')}
-                        {this.renderTextField('password', 'Password', 'password')}
-
-                        <TextField 
-                            style={{backgroundColor:'white'}} 
-                            fullWidth 
-                            className="rounded mt-3"
-                            name="confirmPassword"
-                            size="small" 
-                            label="Confirm Password"
-                            type="password"
-                            variant="filled" 
-                            onChange={this.handleChange}
-                            error={this.state.formRegister.password !== this.state.formRegister.confirmPassword ? true : false}
-                        />
-
-                        <FormControlLabel
-                            control={<GreenCheckbox name="infoExpectStrengths" value="accept"/>}
-                            label="I accept terms of use" className="align-self-start" style={{color:'white'}}
-                        />
-                        <button onClick={this.login} disabled={this.state.formRegister.password !== this.state.formRegister.confirmPassword ? true : false} className="btn btn-light">Sign Up</button>
-                        <p className="mt-3 text-white">have a account? <Link className="text-white" to="/login"><u>Sign In</u></Link></p>
+        if(!this.props.login){
+            if(this.state.status){
+                return <Redirect to="/"/>
+            }
+    
+            return (
+                <div className="home-page">
+                    <div className="d-flex justify-content-center">
+                        <div className="frame-register d-flex flex-column alignite px-5 align-items-center">
+                            <h1 className="text-center">Event Management User Register</h1>
+                            {this.renderTextField('nama', 'Full Name')}
+                            {this.renderTextField('email', 'Email')}
+                            {this.renderTextField('password', 'Password', 'password')}
+    
+                            <TextField 
+                                style={{backgroundColor:'white'}} 
+                                fullWidth 
+                                className="rounded mt-3"
+                                name="confirmPassword"
+                                size="small" 
+                                label="Confirm Password"
+                                type="password"
+                                variant="filled" 
+                                onChange={this.handleChange}
+                                error={this.state.formRegister.password !== this.state.formRegister.confirmPassword ? true : false}
+                            />
+    
+                            <FormControlLabel
+                                control={<GreenCheckbox name="infoExpectStrengths" value="accept"/>}
+                                label="I accept terms of use" className="align-self-start" style={{color:'white'}}
+                            />
+                            <button onClick={this.login} disabled={this.state.formRegister.password !== this.state.formRegister.confirmPassword ? true : false} className="btn btn-light">Sign Up</button>
+                            <p className="mt-3 text-white">have a account? <Link className="text-white" to="/login"><u>Sign In</u></Link></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return <Redirect to="/welcome_page"/>
+        }
+
     }
 }
 
-export default Register
+const mapStateToProps = (state)=>{
+    return{
+        login: state.auth.data
+    }
+}
+
+export default connect(mapStateToProps)(Register)
