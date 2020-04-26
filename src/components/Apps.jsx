@@ -9,6 +9,7 @@ import Login from './Login'
 import Welcome from './Welcome'
 import Header from './Header'
 import Event from './CreateEvent'
+import Profile from './Profile'
 
 export class Apps extends Component {
 
@@ -30,6 +31,7 @@ export class Apps extends Component {
                         <Route path="/register" component={Register}/>
                         <Route path="/welcome_page" component={Welcome}/>
                         <Route path="/create_event" component={Event}/>
+                        <Route path="/Profile" component={Profile}/>
                     </Switch>
                 </BrowserRouter>
             </div>
