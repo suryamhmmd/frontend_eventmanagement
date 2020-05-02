@@ -13,6 +13,7 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
+import { Link } from 'react-router-dom';
 
 export class Sidebar extends Component {
 
@@ -92,22 +93,31 @@ export class Sidebar extends Component {
                         {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open2} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Input Surat, Proposal, MoU, Notulensi" />
-                        </ListItem>
-                        </List>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi Surat" />
-                        </ListItem>
-                        </List>
+                        <Link to={{
+                            pathname:'/input_archiving',
+                            state:{
+                                jenisInput:''
+                            }
+                        }}>
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Input Surat, Proposal, MoU, Notulensi" />
+                            </ListItem>
+                            </List>
+                        </Link>
+                        <Link to="/recap_surat">
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi Surat" />
+                            </ListItem>
+                            </List>
+                        </Link>
                         <List component="div" disablePadding>
                         <ListItem button>
                             <ListItemIcon>
