@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from '../Sidebar'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
 
@@ -13,18 +13,20 @@ import Collapse from '@material-ui/core/Collapse';
 import InputSurat from './inputSurat'
 import InputProposal from './inputProposal'
 import InputMoU from './inputMoU'
-import InputNotulensi from './inputMoU'
+import InputNotulensi from './inputNotulensi'
 
 export class inputArchiving extends Component {
     state = {
         dataEvent:null,
         open:false,
-        jenisInput:''
+        jenisInput:'',
+        dataUser:null
     }
 
     componentDidMount(){
-        let data = JSON.parse(localStorage.getItem('dataEvent'))
-        this.setState({dataEvent:data})
+        let dataEvent = JSON.parse(localStorage.getItem('dataEvent'))
+        let dataUser = JSON.parse(localStorage.getItem('userData'))
+        this.setState({dataEvent, dataUser})
     }
 
     handleClick = ()=>{
@@ -80,7 +82,7 @@ export class inputArchiving extends Component {
                         null
                         : this.state.jenisInput=== 'surat'?
 
-                        <InputSurat/>
+                        <InputSurat event = {this.state.dataEvent} user = {this.state.dataUser}/>
                         : this.state.jenisInput === 'proposal' ?
                         <InputProposal/>
                         : this.state.jenisInput==='mou' ?
@@ -90,7 +92,7 @@ export class inputArchiving extends Component {
                     }
                 </div>
             </div>
-            )
+        )
         
     }
 }

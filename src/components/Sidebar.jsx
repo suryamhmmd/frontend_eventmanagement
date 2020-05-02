@@ -108,14 +108,16 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi Surat" />
-                        </ListItem>
-                        </List>
+                        <Link to="/recap_surat">
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi Surat" />
+                            </ListItem>
+                            </List>
+                        </Link>
                         <List component="div" disablePadding>
                         <ListItem button>
                             <ListItemIcon>

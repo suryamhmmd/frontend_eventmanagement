@@ -11,7 +11,8 @@ import Header from './Header'
 import Event from './CreateEvent'
 import Profile from './Profile'
 import Dashboard from './Dashboard'
-import inputArchiving from './inputArchiving'
+import inputArchiving from './archiving/inputArchiving'
+import RecapSurat from './archiving/recapSurat'
 
 export class Apps extends Component {
 
@@ -36,6 +37,7 @@ export class Apps extends Component {
                         <Route path="/Profile" component={Profile}/>
                         <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/input_archiving" component={inputArchiving}/>
+                        <Route path="/recap_surat" component={RecapSurat}/>
                     </Switch>
                 </BrowserRouter>
             </div>

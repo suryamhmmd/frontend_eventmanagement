@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Swal from 'sweetalert2';
-import axios from '../config/axios';
+import axios from '../../config/axios';
+import {Redirect} from  'react-router-dom'
 
 export class inputSurat extends Component {
 
     state = {
         formSurat:{
             nosurat:'',
-            tanggal_masuk:new Date(),
-            tanggal_keluar:new Date(),
+            tanggal_masuk:'',
+            tanggal_keluar:'',
             perihal:'',
             surat_dari:'',
             kepada:'',
@@ -26,9 +27,9 @@ export class inputSurat extends Component {
     }
 
     submit = ()=>{
-        let {nosurat, tanggal_keluar, tanggal_masuk, perihal, surat_dari, kepada, pj} = this.state.formSurat
+        let {nosurat, perihal, tanggal_keluar, tanggal_masuk, surat_dari, kepada, pj} = this.state.formSurat
 
-        if(!nosurat || !tanggal_keluar || !tanggal_masuk || !perihal || !surat_dari || !kepada || !pj){
+        if(!nosurat || !perihal || !surat_dari || !kepada || !pj){
             Swal.fire({
                 icon:'error',
                 title:'Field Empty',
@@ -36,9 +37,15 @@ export class inputSurat extends Component {
             })
             return
         }
+        let data
+        if(tanggal_keluar){
+            data = {nosurat, perihal, surat_dari, kepada, pj, tanggal_keluar, id_event:this.props.event.idEvent, id_user:this.props.user.id_user}
+        }else{
+            data = {nosurat, perihal, surat_dari, kepada, pj, tanggal_masuk, id_event:this.props.event.idEvent, id_user:this.props.user.id_user}
 
-        let data = this.state.formSurat
+        }
 
+        console.log(data)
         axios.post(`/surat`, data)
         .then(res=>{
             Swal.fire({
@@ -48,6 +55,7 @@ export class inputSurat extends Component {
                 showConfirmButton: false,
                 timer: 1500
             })
+            this.setState({redirect:true})
         })
         .catch(err=>{
             console.log(err)
@@ -72,6 +80,9 @@ export class inputSurat extends Component {
     }
 
     render() {
+        if(this.state.redirect){
+            return <Redirect to="/recap_surat"/>
+        }
         return (
             <div className="pt-3 d-flex flex-column">
                 <div className="row">
