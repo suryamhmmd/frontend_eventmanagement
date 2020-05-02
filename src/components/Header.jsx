@@ -30,7 +30,6 @@ export class Header extends Component {
     getEvent = ()=>{
         axios.get(`/event`)
         .then(res=>{
-            // console.log(res.data)
             this.setState({dataEvent: res.data})
         })
         .catch(err=>{
@@ -38,13 +37,25 @@ export class Header extends Component {
         })
     }
 
+    createSession = (namaEvent, idEvent)=>{
+        localStorage.setItem('dataEvent', JSON.stringify({namaEvent:namaEvent, idEvent:idEvent}))
+    }
+    
     renderEvent = ()=>{
         let data = this.state.dataEvent.map(val=>{
             return(
                 <div key={val.nama}>
-                    <DropdownItem >
-                        {val.nama}
-                    </DropdownItem>
+                    <Link to={{
+                        pathname:'/dashboard',
+                        state:{
+                            namaEvent:val.nama,
+                            idEvent:val.id_event
+                        }
+                    }}>
+                        <DropdownItem  onClick={()=>{this.createSession(val.nama, val.id_event)}}>
+                            {val.nama}
+                        </DropdownItem>
+                    </Link>
                 </div>
             )
         })
