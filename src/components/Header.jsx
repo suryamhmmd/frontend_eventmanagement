@@ -15,9 +15,42 @@ import {
   } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
+import axios from '../config/axios';
 
 
 export class Header extends Component {
+
+    state = {
+        dataEvent:null
+    }
+    componentDidMount(){
+        this.getEvent()
+    }
+
+    getEvent = ()=>{
+        axios.get(`/event`)
+        .then(res=>{
+            // console.log(res.data)
+            this.setState({dataEvent: res.data})
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
+    renderEvent = ()=>{
+        let data = this.state.dataEvent.map(val=>{
+            return(
+                <div key={val.nama}>
+                    <DropdownItem >
+                        {val.nama}
+                    </DropdownItem>
+                </div>
+            )
+        })
+        return data
+    }
+
     render() {
         if(!this.props.login){
             return (
@@ -38,15 +71,26 @@ export class Header extends Component {
                 </div>
             )
         }else{
+
+            if(this.state.dataEvent === null){
+                return <h1>Loading</h1>
+            }
+
             return(
                 <Navbar className="navbar fixed-top" expand="md">
                     <NavbarBrand className="logo_navbar">
-                        <h4 style={{color:'white'}}>Event Management App</h4>
+                        <h5 style={{color:'white'}}>Event Management App</h5>
                     </NavbarBrand>
-                    <h4 className="text-white">Nama Event</h4>
 
-                    <h4 className="text-white mx-auto">Welcome</h4>
                     <Nav className="ml-auto" navbar>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle className="font-weight-bold mb-0" nav caret>
+                                <span className="text-white">Event</span>
+                            </DropdownToggle>
+                            <DropdownMenu right>
+                                {this.renderEvent()}
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle className="d-flex flex-row justify-content-center align-items-center font-weight-bold mb-0" nav caret>
                                 <Avatar className="mr-2" style={{backgroundColor:'#477B9F', width:'24px', height:'24px', fontSize:'12px'}}>{this.props.login.nama.slice(0,1)}</Avatar> <span className="text-white">Hi, {this.props.login.nama}</span>

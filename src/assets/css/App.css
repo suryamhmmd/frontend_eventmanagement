@@ -95,3 +95,12 @@
 	border-radius: 25px;
 	padding: 20px;
 }
+
+
+/* =============Sidebar=============== */
+
+.frame-sidebar{
+	height: 600px;
+	width: 300px;
+	background-color: 'white'
+}
