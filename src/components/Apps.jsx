@@ -13,6 +13,10 @@ import Profile from './Profile'
 import Dashboard from './Dashboard'
 import inputArchiving from './archiving/inputArchiving'
 import RecapSurat from './archiving/recapSurat'
+import RecapProposal from './archiving/recapProposal'
+import RecapMou from './archiving/recapMou'
+import RecapNotulensi from './archiving/recapNotulensi'
+
 
 export class Apps extends Component {
 
@@ -38,6 +42,10 @@ export class Apps extends Component {
                         <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/input_archiving" component={inputArchiving}/>
                         <Route path="/recap_surat" component={RecapSurat}/>
+                        <Route path="/recap_proposal" component={RecapProposal}/>
+                        <Route path="/recap_mou" component={RecapMou}/>
+                        <Route path="/recap_notulensi" component={RecapNotulensi}/>
+
                     </Switch>
                 </BrowserRouter>
             </div>

@@ -10,12 +10,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 
-import InputSurat from './inputSurat'
-import InputProposal from './inputProposal'
-import InputMoU from './inputMoU'
-import InputNotulensi from './inputNotulensi'
+import InputCashflow from './inputCashflow'
+import InputRAB from './inputRAB'
 
-export class inputArchiving extends Component {
+export class inputFinance extends Component {
     state = {
         dataEvent:null,
         open:false,
@@ -55,24 +53,14 @@ export class inputArchiving extends Component {
                         {this.state.open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                        <List onClick={()=>this.handleClick2('surat')} component="div" disablePadding>
+                        <List onClick={()=>this.handleClick2('cashflow')} component="div" disablePadding>
                         <ListItem button>
-                            <ListItemText primary="Surat" />
+                            <ListItemText primary="Cashflow" />
                         </ListItem>
                         </List>
-                        <List onClick={()=>this.handleClick2('proposal')} component="div" disablePadding>
+                        <List onClick={()=>this.handleClick2('rab')} component="div" disablePadding>
                         <ListItem button>
-                            <ListItemText primary="Proposal" />
-                        </ListItem>
-                        </List>
-                        <List onClick={()=>this.handleClick2('mou')} component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemText primary="MoU" />
-                        </ListItem>
-                        </List>
-                        <List onClick={()=>{this.handleClick2('notulensi')}} component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemText primary="Notulensi Rapar" />
+                            <ListItemText primary="RAB" />
                         </ListItem>
                         </List>
                     </Collapse>
@@ -80,15 +68,9 @@ export class inputArchiving extends Component {
                     {
                         !this.state.jenisInput ?
                         null
-                        : this.state.jenisInput=== 'surat'?
-
-                        <InputSurat event = {this.state.dataEvent} user = {this.state.dataUser}/>
-                        : this.state.jenisInput === 'proposal' ?
-                        <InputProposal/>
-                        : this.state.jenisInput==='mou' ?
-                        <InputMoU event = {this.state.dataEvent} user = {this.state.dataUser} />
-                        : 
-                        <InputNotulensi/>
+                        : this.state.jenisInput=== 'cashflow'?
+                        <InputCashflow event = {this.state.dataEvent} user = {this.state.dataUser}/>
+                        : <InputRAB/>
                     }
                 </div>
             </div>
@@ -97,5 +79,4 @@ export class inputArchiving extends Component {
     }
 }
 
-
-export default inputArchiving
+export default inputFinance

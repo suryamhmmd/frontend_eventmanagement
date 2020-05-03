@@ -39,12 +39,14 @@ export class Sidebar extends Component {
                     component="nav"
                     aria-labelledby="nested-list-subheader"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                        <DashboardIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Dashboard" />
-                    </ListItem>
+                    <Link to='/Dashboard'>
+                        <ListItem button>
+                            <ListItemIcon>
+                            <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Dashboard" />
+                        </ListItem>
+                    </Link>
                     <ListItem button>
                         <ListItemIcon>
                         <TimelineIcon />
@@ -118,30 +120,36 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi Proposal" />
-                        </ListItem>
-                        </List>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi MoU" />
-                        </ListItem>
-                        </List>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi Notulensi Rapat" />
-                        </ListItem>
-                        </List>
+                        <Link to='/recap_proposal'>
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi Proposal" />
+                            </ListItem>
+                            </List>
+                        </Link>
+                        <Link to='/recap_mou'>
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi MoU" />
+                            </ListItem>
+                            </List>
+                        </Link>
+                        <Link to='/recap_notulensi'>
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi Notulensi Rapat" />
+                            </ListItem>
+                            </List>
+                        </Link>
                     </Collapse>
                 </List>
                 </div>
