@@ -70,7 +70,7 @@ export class inputFinance extends Component {
                         null
                         : this.state.jenisInput=== 'cashflow'?
                         <InputCashflow event = {this.state.dataEvent} user = {this.state.dataUser}/>
-                        : <InputRAB/>
+                        : <InputRAB event = {this.state.dataEvent} user = {this.state.dataUser}/>
                     }
                 </div>
             </div>
