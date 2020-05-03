@@ -90,11 +90,10 @@ export class recapProposal extends Component {
             })
             return
         }
+        let data = {nama, tujuan, tanggal_buat: tanggal_buat.toString().slice(0,10), jenis, status,pj}
 
-        console.log(tanggal_keluar)
         axios.put(`/save_proposal/${this.state.id_proposal}`, data)
         .then(res=>{
-            console.log(res.data)
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -129,18 +128,20 @@ export class recapProposal extends Component {
     }
 
     renderData = ()=>{
-
+        let data = this.state.dataRecap.map(val=>{
             return(
                 <tr key={val.id_proposal}>
                     <td>{val.nama}</td>
                     <td>{val.tujuan}</td>
-                    <td>{val.tanggal_buat}</td>
+                    <td>{val.tanggal_buat.slice(0,10)}</td>
                     <td>{val.jenis}</td>
                     <td>{val.status}</td> 
                     <td>{val.pj}</td>
+                    <td>
                         <button onClick={()=>{this.toggleEdit(val.id_proposal)}} className="btn btn-warning">Edit</button>
                     </td>
                 </tr>
+            )
         })
         return data
     }
@@ -154,7 +155,7 @@ export class recapProposal extends Component {
             )
         }
 
-        let {nama, tujuan, tanggal_buat, jenis, status,pj} = this.state.formProposal
+        let {nama, tujuan, tanggal_buat,pj} = this.state.formProposal
            
         return (
             <div className="container-fluid" style={{marginTop:'80px'}}>
@@ -198,7 +199,7 @@ export class recapProposal extends Component {
                             <div className="col-6">
                             {this.renderTextField('nama', 'Nama Proposal', '', null, nama)}
                             {this.renderTextField('tujuan', 'Tujuan', '', null,tujuan)}
-                            {this.renderTextField('tanggal_buat', 'Tanggal dibuat', 'date', {shrink: true,},tanggal_buat)}
+                            {this.renderTextField('tanggal_buat', 'Tanggal dibuat', 'date', {shrink: true,},tanggal_buat.toString().slice(0,10))}
                             <TextField
                                 className="mt-3"
                                 fullWidth
@@ -222,7 +223,7 @@ export class recapProposal extends Component {
                             </div>
                             <div className="col-6">
                                 <FormControl component="fieldset">
-                                    <RadioGroup onChange={this.handleChange3} row aria-label="position" name="position" defaultValue="top">
+                                    <RadioGroup onChange={this.handleChange3} row aria-label="position" name="position" defaultValue={this.state.formProposal.status}>
                                         <FormControlLabel value="Accept" control={<Radio color="primary" />} label="Accept" />
                                         <FormControlLabel value="Pending" control={<Radio color="primary" />} label="Pending" />
                                         <FormControlLabel value="Reject" control={<Radio color="primary" />} label="Reject" />
