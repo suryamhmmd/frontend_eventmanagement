@@ -132,8 +132,9 @@ export class Dashboard extends Component {
                 <div className="border rounded p-4" style={{marginLeft:'320px', marginBottom:'23px', height:'680px'}}>
                     <h1 className="text-center mb-4">{this.state.dataEvent.namaEvent}</h1>
                     <div className="row">
-                        <div className="col-8">
-                            <h2>Agenda</h2>
+                        <div className="col-8 border rounded-lg p-0">
+                            <h2 className="text-center text-white" style={{backgroundColor:'#363755'}}>Agenda</h2>
+
                         </div>
                         <div className="col-4 border rounded-lg p-0">
                             <h2 className="text-center text-white" style={{backgroundColor:'#363755'}}>Finance</h2>

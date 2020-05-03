@@ -40,6 +40,12 @@ export class Header extends Component {
     createSession = (namaEvent, idEvent)=>{
         localStorage.setItem('dataEvent', JSON.stringify({namaEvent:namaEvent, idEvent:idEvent}))
     }
+
+    onLogout = ()=>{
+        window.location.pathname="/"
+        this.props.logOut()
+
+    }
     
     renderEvent = ()=>{
         let data = this.state.dataEvent.map(val=>{
@@ -107,7 +113,7 @@ export class Header extends Component {
                                 <Avatar className="mr-2" style={{backgroundColor:'#477B9F', width:'24px', height:'24px', fontSize:'12px'}}>{this.props.login.nama.slice(0,1)}</Avatar> <span className="text-white">Hi, {this.props.login.nama}</span>
                             </DropdownToggle>
                             <DropdownMenu right>
-                                <DropdownItem onClick={this.props.logOut}>
+                                <DropdownItem onClick={this.onLogout}>
                                 Logout
                                 </DropdownItem>
                             </DropdownMenu>

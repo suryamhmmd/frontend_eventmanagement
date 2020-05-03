@@ -7,7 +7,7 @@ export const logIn = (data)=>{
 }
 
 export const logOut = (data)=>{
-    localStorage.removeItem('userData')
+    localStorage.clear()
     return {
         type: "LOGOUT_SUCCESS",
        
