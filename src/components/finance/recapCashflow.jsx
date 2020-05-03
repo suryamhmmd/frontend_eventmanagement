@@ -149,8 +149,8 @@ export class recapCashflow extends Component {
                     <td>{val.jenis}</td>
                     <td>{val.tanggal.slice(0,10)}</td>
                     <td>{val.deskripsi}</td>
-                    <td>{val.jumlah}</td>
-                    <td>{saldo}</td>
+                    <td>Rp.{Intl.NumberFormat().format(val.jumlah).replace(/,/g, '.')}</td>
+                    <td>Rp.{Intl.NumberFormat().format(saldo).replace(/,/g, '.')}</td>
                     <td>
                         <button onClick={()=>{this.toggleEdit(val.id_cashflow)}} className="btn btn-warning">Edit</button>
                     </td>
