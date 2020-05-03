@@ -131,15 +131,15 @@ export class recapRAB extends Component {
 
     renderData = ()=>{
         let data = this.state.dataRecap.map(val=>{
-            
+            let total = val.jumlah * val.harga_satuan
             return(
                 <tr key={val.id_rab}>
                     <td>{val.divisi}</td>
                     <td>{val.keterangan}</td>
                     <td>{val.jumlah}</td>
                     <td>{val.satuan}</td>
-                    <td>{val.harga_satuan}</td>
-                    <td>{val.jumlah * val.harga_satuan}</td>
+                    <td>Rp.{Intl.NumberFormat().format(val.harga_satuan).replace(/,/g, '.')}</td>
+                    <td>Rp.{Intl.NumberFormat().format(total).replace(/,/g, '.')}</td>
                     <td>Terbayar</td>
                     <td>
                         <button onClick={()=>{this.toggleEdit(val.id_rab)}} className="btn btn-warning">Edit</button>
@@ -195,7 +195,7 @@ export class recapRAB extends Component {
                         <tfoot>
                             <tr>
                                 <td colSpan={5}>Total RAB</td>
-                                <td colSpan={5}>{this.state.sum}</td>
+                                <td colSpan={5}>Rp.{Intl.NumberFormat().format(this.state.sum).replace(/,/g, '.')}</td>
                             </tr>
                         </tfoot>
                     </table>
