@@ -27,7 +27,7 @@ export class Dashboard extends Component {
         return (
             <div className="container-fluid" style={{marginTop:'80px'}}>
                 <Sidebar/>
-                <div className="border rounded p-4" style={{marginLeft:'320px', marginBottom:'23px'}}>
+                <div className="border rounded p-4" style={{marginLeft:'320px', marginBottom:'23px', height:'680px'}}>
                     <h1>{this.state.dataEvent.namaEvent}</h1>
                     <div className="row">
                         <div className="col-8">
