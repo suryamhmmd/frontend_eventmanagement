@@ -16,7 +16,9 @@ import RecapSurat from './archiving/recapSurat'
 import RecapProposal from './archiving/recapProposal'
 import RecapMou from './archiving/recapMou'
 import RecapNotulensi from './archiving/recapNotulensi'
-
+import InputFinance from './finance/inputFinance'
+import RecapCashFlow from './finance/recapCashflow'
+import RecapRab from './finance/recapRAB'
 
 export class Apps extends Component {
 
@@ -45,7 +47,9 @@ export class Apps extends Component {
                         <Route path="/recap_proposal" component={RecapProposal}/>
                         <Route path="/recap_mou" component={RecapMou}/>
                         <Route path="/recap_notulensi" component={RecapNotulensi}/>
-
+                        <Route path="/input_finance" component={InputFinance}/>
+                        <Route path="/recap_cashflow" component={RecapCashFlow}/>
+                        <Route path="/recap_rab" component={RecapRab}/>
                     </Switch>
                 </BrowserRouter>
             </div>

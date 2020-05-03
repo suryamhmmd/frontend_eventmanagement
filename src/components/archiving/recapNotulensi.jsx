@@ -18,11 +18,11 @@ export class recapNotulensi extends Component {
         let dataEvent = JSON.parse(localStorage.getItem('dataEvent'))
         let dataUser = JSON.parse(localStorage.getItem('userData'))
         this.setState({dataEvent, dataUser})
-        this.getRecap()
+        this.getRecap(dataEvent)
     }
 
-    getRecap = ()=>{
-        axios.get(`/surat`)
+    getRecap = (dataEvent)=>{
+        axios.get(`/surat/${dataEvent.idEvent}`)
         .then(res=>{
             this.setState({dataRecap:res.data})
         })

@@ -61,30 +61,36 @@ export class Sidebar extends Component {
                         {this.state.open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Input Cashflow, RAB" />
-                        </ListItem>
-                        </List>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi Cashflow" />
-                        </ListItem>
-                        </List>
-                        <List component="div" disablePadding>
-                        <ListItem button>
-                            <ListItemIcon>
-                            <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Rekapitulasi RAB" />
-                        </ListItem>
-                        </List>
+                        <Link to="/input_finance">
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Input Cashflow, RAB" />
+                            </ListItem>
+                            </List>
+                        </Link>
+                        <Link to="/recap_cashflow">
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi Cashflow" />
+                            </ListItem>
+                            </List>
+                        </Link>
+                        <Link to="/recap_rab">
+                            <List component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemIcon>
+                                <StarBorder />
+                                </ListItemIcon>
+                                <ListItemText primary="Rekapitulasi RAB" />
+                            </ListItem>
+                            </List>
+                        </Link>
                     </Collapse>
 
                     <ListItem button onClick={this.handleClick2}>

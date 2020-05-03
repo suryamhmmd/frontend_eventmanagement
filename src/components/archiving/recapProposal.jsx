@@ -22,7 +22,7 @@ export class recapProposal extends Component {
     }
 
     getRecap = ()=>{
-        axios.get(`/surat`)
+        axios.get(`/surat/${this.state.dataEvent.idEvent}`)
         .then(res=>{
             this.setState({dataRecap:res.data})
         })
