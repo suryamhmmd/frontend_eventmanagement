@@ -72,7 +72,7 @@ export class inputArchiving extends Component {
                         </List>
                         <List onClick={()=>{this.handleClick2('notulensi')}} component="div" disablePadding>
                         <ListItem button>
-                            <ListItemText primary="Notulensi Rapar" />
+                            <ListItemText primary="Notulensi Rapat" />
                         </ListItem>
                         </List>
                     </Collapse>
