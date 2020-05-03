@@ -39,7 +39,7 @@ export class Sidebar extends Component {
                     component="nav"
                     aria-labelledby="nested-list-subheader"
                 >
-                    <Link to='/Dashboard'>
+                    <Link className="text-decoration-none" style={{color:'black'}} to='/Dashboard'>
                         <ListItem button>
                             <ListItemIcon>
                             <DashboardIcon />
@@ -61,7 +61,7 @@ export class Sidebar extends Component {
                         {this.state.open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                        <Link to="/input_finance">
+                        <Link className="text-decoration-none" style={{color:'black'}} to="/input_finance">
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -71,7 +71,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to="/recap_cashflow">
+                        <Link className="text-decoration-none" style={{color:'black'}} to="/recap_cashflow">
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -81,7 +81,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to="/recap_rab">
+                        <Link className="text-decoration-none" style={{color:'black'}} to="/recap_rab">
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -101,7 +101,7 @@ export class Sidebar extends Component {
                         {this.state.open2 ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open2} timeout="auto" unmountOnExit>
-                        <Link to={{
+                        <Link style={{color:'black'}} className="text-decoration-none" to={{
                             pathname:'/input_archiving',
                             state:{
                                 jenisInput:''
@@ -116,7 +116,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to="/recap_surat">
+                        <Link style={{color:'black'}} className="text-decoration-none" to="/recap_surat">
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -126,7 +126,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to='/recap_proposal'>
+                        <Link style={{color:'black'}} className="text-decoration-none" to='/recap_proposal'>
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -136,7 +136,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to='/recap_mou'>
+                        <Link style={{color:'black'}} className="text-decoration-none" to='/recap_mou'>
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>
@@ -146,7 +146,7 @@ export class Sidebar extends Component {
                             </ListItem>
                             </List>
                         </Link>
-                        <Link to='/recap_notulensi'>
+                        <Link style={{color:'black'}} className="text-decoration-none" to='/recap_notulensi'>
                             <List component="div" disablePadding>
                             <ListItem button>
                                 <ListItemIcon>

@@ -27,7 +27,6 @@ export class inputMoU extends Component {
 
     submit = ()=>{
         let {nama_instansi,nama_panitia, jabatan, divisi, tanggal, deskripsi } = this.state.formMou
-
         if(!nama_instansi || !nama_panitia || !jabatan || !divisi || !tanggal || !deskripsi){
             Swal.fire({
                 icon:'error',
@@ -38,28 +37,30 @@ export class inputMoU extends Component {
         }
         let data={nama_instansi,nama_panitia, jabatan, divisi, tanggal, deskripsi, id_event:this.props.event.idEvent, id_user:this.props.user.id_user} 
 
-        console.log(data)
-        // axios.post(`/surat`, data)
-        // .then(res=>{
-        //     Swal.fire({
-        //         position: 'center',
-        //         icon: 'success',
-        //         title: 'Surat Tersimpan',
-        //         showConfirmButton: false,
-        //         timer: 1500
-        //     })
-        //     this.setState({redirect:true})
-        // })
-        // .catch(err=>{
-        //     console.log(err)
-        // })
+        axios.post(`/mou`, data)
+        .then(res=>{
+            console.log(res.data)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Surat Tersimpan',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            this.setState({redirect:true})
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
-    renderTextField = (name, label, type, shrink)=>{
+    renderTextField = (name, label, type, shrink, multiple, row)=>{
         return(
             <TextField 
                 style={{backgroundColor:'white'}} 
                 fullWidth 
+                multiline={multiple}
+                rows={row}
                 className="rounded mt-3"
                 name={name}
                 size="small" 
@@ -72,20 +73,21 @@ export class inputMoU extends Component {
         )
     }
 
-    render() {if(this.state.redirect){
-        return <Redirect to="/recap_surat"/>
-    }
+    render() {
+        if(this.state.redirect){
+            return <Redirect to="/recap_mou"/>
+        }
     return (
         <div className="pt-3 d-flex flex-column">
             <div className="row">
                 <div className="col-6">
-                    {this.renderTextField('nama_instansi', 'Nama Instansi', '', null)}
-                    {this.renderTextField('nama_panitia', 'Nama Panitia', '', null)}
-                    {this.renderTextField('jabatan', 'Jabatan', '', null)}
-                    {this.renderTextField('deskripsi', 'Deskripsi Perjanjian', '', null)}
+                    {this.renderTextField('nama_instansi', 'Nama Instansi', '', null, false, '')}
+                    {this.renderTextField('nama_panitia', 'Nama Panitia', '', null, false, '')}
+                    {this.renderTextField('divisi', 'Divisi', '', null, false, '')}
                 </div>
                 <div className="col-6">
-                    {this.renderTextField('tanggal', 'Tanggal Kontrak', '', {shrink: true,})}
+                    {this.renderTextField('jabatan', 'Jabatan', '', null, false, '')}
+                    {this.renderTextField('tanggal', 'Tanggal Kontral', 'date',{shrink:true}, false, '')}
                     <Button
                         fullWidth
                         size="large"
@@ -101,6 +103,8 @@ export class inputMoU extends Component {
                     </Button>
                 </div>
             </div>
+            {this.renderTextField('deskripsi', 'Deskripsi', '', null, true, 4)}
+
             <button onClick={this.submit} className="btn btn-lg btn-dark mt-3 align-self-end">Input</button>
         </div>
         )
