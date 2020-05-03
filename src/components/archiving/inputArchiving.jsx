@@ -84,11 +84,11 @@ export class inputArchiving extends Component {
 
                         <InputSurat event = {this.state.dataEvent} user = {this.state.dataUser}/>
                         : this.state.jenisInput === 'proposal' ?
-                        <InputProposal/>
+                        <InputProposal event = {this.state.dataEvent} user = {this.state.dataUser}/>
                         : this.state.jenisInput==='mou' ?
                         <InputMoU event = {this.state.dataEvent} user = {this.state.dataUser} />
                         : 
-                        <InputNotulensi/>
+                        <InputNotulensi event = {this.state.dataEvent} user = {this.state.dataUser}/>
                     }
                 </div>
             </div>
