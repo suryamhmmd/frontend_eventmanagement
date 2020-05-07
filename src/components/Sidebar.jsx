@@ -47,12 +47,14 @@ export class Sidebar extends Component {
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
+                    <Link className="text-decoration-none" style={{color:'black'}} to='/Timeline'>
                     <ListItem button>
                         <ListItemIcon>
                         <TimelineIcon />
                         </ListItemIcon>
                         <ListItemText primary="Timeline" />
                     </ListItem>
+                    </Link>
                     <ListItem button onClick={this.handleClick}>
                         <ListItemIcon>
                         <AttachMoneyIcon />

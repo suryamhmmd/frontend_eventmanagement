@@ -15,6 +15,7 @@ export class Dashboard extends Component {
         dataMou:null,
         mailIn:0,
         mailOut:0,
+        rabcashin:0
     }
 
     componentDidMount(){
@@ -82,9 +83,9 @@ export class Dashboard extends Component {
             let mailOut = 0
             res.data.map(val=>{
                 if(val.tanggal_keluar){
-                    return mailIn = mailIn + 1
-                }else{
                     return mailOut = mailOut +1
+                }else{
+                    return mailIn = mailIn + 1
                 }
                 
             })
@@ -110,7 +111,7 @@ export class Dashboard extends Component {
                     <td>{val.nama_panitia}</td>
                     <td>{val.jabatan}</td>
                     <td>{val.divisi}</td>
-                    <td>{val.tanggal}</td>
+                    <td>{val.tanggal.toString().slice(0,10)}</td>
                     <td>{val.deskripsi}</td>
                 </tr>
             )
@@ -140,16 +141,18 @@ export class Dashboard extends Component {
                             <h2 className="text-center text-white" style={{backgroundColor:'#363755'}}>Finance</h2>
                             <div className="px-3 row">
                                 <div className="col-6">
-                                    <p>Total Budget :</p>
+                                    <p>Total RAB :</p>
                                     <p>Total Cash In :</p>
                                     <p>Total Cash Out :</p>
                                     <p>Balance :</p>
+                                    <p>RAB-Cash in : </p>
                                 </div>
                                 <div className="col-6">
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalBudget).replace(/,/g, '.')}</p>
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalPemasukan).replace(/,/g, '.')}</p>
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalPengeluaran).replace(/,/g, '.')}</p>
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.saldo).replace(/,/g, '.')}</p>
+                                    <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.rabcashin).replace(/,/g, '.')}</p>
                                 </div>
                             </div>
                         </div>
@@ -162,6 +165,7 @@ export class Dashboard extends Component {
                                 <p>Mail Out : {this.state.mailOut}</p>
                             </div>
                             <div className="px-3">
+                                <h1 className="text-center">MoU Terakhir</h1>
                                 <table className="table table-bordered table-hover">
                                     <thead>
                                         <tr>
