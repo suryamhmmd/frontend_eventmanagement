@@ -140,7 +140,6 @@ export class recapRAB extends Component {
                     <td>{val.satuan}</td>
                     <td>Rp.{Intl.NumberFormat().format(val.harga_satuan).replace(/,/g, '.')}</td>
                     <td>Rp.{Intl.NumberFormat().format(total).replace(/,/g, '.')}</td>
-                    <td>Terbayar</td>
                     <td>
                         <button onClick={()=>{this.toggleEdit(val.id_rab)}} className="btn btn-warning">Edit</button>
                     </td>
@@ -185,7 +184,6 @@ export class recapRAB extends Component {
                                 <th>Satuan</th>
                                 <th>Harga Satuan</th>
                                 <th>Sub Total</th>
-                                <th>Terbayar</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
