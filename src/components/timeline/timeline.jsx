@@ -67,18 +67,6 @@ export class timeline extends Component {
         })
     }
 
-    // onEventResize = (type, { event, start, end, allDay }) => {
-    //     this.setState(state => {
-    //       state.events[0].start = start;
-    //       state.events[0].end = end;
-    //       return { events: state.events };
-    //     });
-    //   };
-    
-    //   onEventDrop = ({ event, start, end, allDay }) => {
-    //     console.log(start);
-    //   };
-
     toggleAdd = ()=>{
         this.setState({modal:!this.state.modal, status:'add'})
     }

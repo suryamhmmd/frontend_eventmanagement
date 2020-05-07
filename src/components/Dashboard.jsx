@@ -77,7 +77,7 @@ export class Dashboard extends Component {
     }
 
     getMou = (dataEvent)=>{
-        axios.get(`/mou/${dataEvent.idEvent}`)
+        axios.get(`/mou_terakhir/${dataEvent.idEvent}`)
         .then(res=>{
             this.setState({dataMou:res.data})
         })
@@ -112,9 +112,8 @@ export class Dashboard extends Component {
     }
 
     getSurat = (dataEvent)=>{
-        axios.get(`/surat/${dataEvent.idEvent}`)
+        axios.get(`/surat_terakhir/${dataEvent.idEvent}`)
         .then(res=>{
-            console.log(res.data)
             let mailIn = 0
             let mailOut = 0
             res.data.map(val=>{
@@ -125,7 +124,7 @@ export class Dashboard extends Component {
                 }
                 
             })
-            this.setState({mailIn, mailOut,dataSurat:res.data})
+            this.setState({mailIn, mailOut,dataSurat:res.data.reverse()})
         })
         .catch(err=>{
             console.log(err)
