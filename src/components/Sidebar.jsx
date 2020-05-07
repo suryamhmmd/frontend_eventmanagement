@@ -39,7 +39,7 @@ export class Sidebar extends Component {
                     component="nav"
                     aria-labelledby="nested-list-subheader"
                 >
-                    <Link className="text-decoration-none" style={{color:'black'}} to='/Dashboard'>
+                    <Link className="text-decoration-none" style={{color:'black'}} to='/dashboard'>
                         <ListItem button>
                             <ListItemIcon>
                             <DashboardIcon />
@@ -47,7 +47,7 @@ export class Sidebar extends Component {
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
-                    <Link className="text-decoration-none" style={{color:'black'}} to='/Timeline'>
+                    <Link className="text-decoration-none" style={{color:'black'}} to='/timeline'>
                     <ListItem button>
                         <ListItemIcon>
                         <TimelineIcon />

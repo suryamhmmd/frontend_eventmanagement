@@ -4,8 +4,18 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '@material-ui/core/Backdrop';
 import axios from '../config/axios';
 
-export class Dashboard extends Component {
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+
+const localizer = momentLocalizer(moment);
+const DnDCalendar = withDragAndDrop(Calendar);
+
+export class Dashboard extends Component {
+//total pemasukan - total budget
     state = {
         dataEvent:null,
         totalPengeluaran:0,
@@ -15,7 +25,8 @@ export class Dashboard extends Component {
         dataMou:null,
         mailIn:0,
         mailOut:0,
-        rabcashin:0
+        rabcashin:0,
+        events:null
     }
 
     componentDidMount(){
@@ -25,6 +36,29 @@ export class Dashboard extends Component {
         this.getCashflow(data)
         this.getMou(data)
         this.getSurat(data)
+        this.getTimeline(data)
+    }
+
+
+    getTimeline = (dataEvent)=>{
+        axios.get(`/agenda/${dataEvent.idEvent}`)
+        .then(res=>{
+            let data = res.data.map(val=>{
+                return{
+                    id_agenda:val.id_agenda,
+                    id_user:val.id_user,
+                    id_event:val.id_event,
+                    start: new Date(val.start),
+                    end: new Date(val.end),
+                    title:val.title
+                }
+                
+            })
+            this.setState({events:data})
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
     getRab = (dataEvent)=>{
@@ -120,7 +154,7 @@ export class Dashboard extends Component {
     }
 
     render() {
-        if(this.state.dataEvent === null || this.state.dataMou === null){
+        if(this.state.dataEvent === null || this.state.dataMou === null || this.state.events === null){
             return(
                 <Backdrop open={true}>
                     <CircularProgress color="inherit" />
@@ -135,7 +169,18 @@ export class Dashboard extends Component {
                     <div className="row">
                         <div className="col-8 border rounded-lg p-0">
                             <h2 className="text-center text-white" style={{backgroundColor:'#363755'}}>Agenda</h2>
-
+                            <DnDCalendar
+                                className="mx-4"
+                                defaultDate={moment().toDate()}
+                                defaultView="month"
+                                events={this.state.events}
+                                onDoubleClickEvent={this.toggleEdit}
+                                localizer={localizer}
+                                // onEventDrop={this.onEventDrop}
+                                // onEventResize={this.onEventResize}
+                                resizable
+                                style={{ height: "56vh" }}
+                            />
                         </div>
                         <div className="col-4 border rounded-lg p-0">
                             <h2 className="text-center text-white" style={{backgroundColor:'#363755'}}>Finance</h2>
@@ -152,7 +197,7 @@ export class Dashboard extends Component {
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalPemasukan).replace(/,/g, '.')}</p>
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalPengeluaran).replace(/,/g, '.')}</p>
                                     <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.saldo).replace(/,/g, '.')}</p>
-                                    <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.rabcashin).replace(/,/g, '.')}</p>
+                                    <p className="font-weight-bold">Rp.{Intl.NumberFormat().format(this.state.totalPemasukan - this.state.totalBudget).replace(/,/g, '.')}</p>
                                 </div>
                             </div>
                         </div>

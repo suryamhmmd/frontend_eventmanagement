@@ -19,7 +19,7 @@ import RecapNotulensi from './archiving/recapNotulensi'
 import InputFinance from './finance/inputFinance'
 import RecapCashFlow from './finance/recapCashflow'
 import RecapRab from './finance/recapRAB'
-import Timeline from './Timeline'
+import Timeline from './timeline/timeline'
 
 export class Apps extends Component {
 
