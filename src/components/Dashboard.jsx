@@ -23,6 +23,7 @@ export class Dashboard extends Component {
         totalBudget:0,
         saldo:0,
         dataMou:null,
+        dataSurat:null,
         mailIn:0,
         mailOut:0,
         rabcashin:0,
@@ -113,6 +114,7 @@ export class Dashboard extends Component {
     getSurat = (dataEvent)=>{
         axios.get(`/surat/${dataEvent.idEvent}`)
         .then(res=>{
+            console.log(res.data)
             let mailIn = 0
             let mailOut = 0
             res.data.map(val=>{
@@ -123,11 +125,43 @@ export class Dashboard extends Component {
                 }
                 
             })
-            this.setState({mailIn, mailOut})
+            this.setState({mailIn, mailOut,dataSurat:res.data})
         })
         .catch(err=>{
             console.log(err)
         })
+    }
+
+    
+    renderSurat = ()=>{
+        if(this.state.dataSurat.length === 0){
+            return(
+                <tr>
+                    <td className="text-center" colSpan={6}>No Data</td>
+                </tr>
+            )
+        }
+        let data = this.state.dataSurat.map(val=>{
+            let tanggal_masuk = '-'
+            let tanggal_keluar = '-'
+            if(val.tanggal_masuk){
+                tanggal_masuk = val.tanggal_masuk.slice(0,10)
+            }else{
+                tanggal_keluar = val.tanggal_keluar.slice(0,10)
+            }
+            return(
+                <tr key={val.id_surat}>
+                    <td>{val.nosurat}</td>
+                    <td>{tanggal_masuk}</td>
+                    <td>{tanggal_keluar}</td>
+                    <td>{val.perihal}</td>
+                    <td>{val.surat_dari}</td>
+                    <td>{val.kepada}</td>
+                    <td>{val.pj}</td>
+                </tr>
+            )
+        })
+        return data
     }
 
     renderMou = ()=>{
@@ -154,7 +188,8 @@ export class Dashboard extends Component {
     }
 
     render() {
-        if(this.state.dataEvent === null || this.state.dataMou === null || this.state.events === null){
+        if(this.state.dataEvent === null || this.state.dataMou === null || this.state.dataSurat===null || this.state.events === null){
+
             return(
                 <Backdrop open={true}>
                     <CircularProgress color="inherit" />
@@ -208,8 +243,25 @@ export class Dashboard extends Component {
                             <div className="px-3">
                                 <p>Mail In : {this.state.mailIn}</p>
                                 <p>Mail Out : {this.state.mailOut}</p>
+                                <h1 className="text-center">Surat Terakhir</h1>
+                                <table className="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No Surat</th>
+                                            <th>Tanggal Masuk</th>
+                                            <th>Tanggal Keluar</th>
+                                            <th>Perihal</th>
+                                            <th>Surat Dari</th>
+                                            <th>Kepada</th>
+                                            <th>PJ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.renderSurat()}
+                                    </tbody>
+                                </table>
                             </div>
-                            <div className="px-3">
+                            <div className="px-5">
                                 <h1 className="text-center">MoU Terakhir</h1>
                                 <table className="table table-bordered table-hover">
                                     <thead>
