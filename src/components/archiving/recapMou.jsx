@@ -130,7 +130,7 @@ export class recapMou extends Component {
                     <td>{val.nama_panitia}</td>
                     <td>{val.jabatan}</td>
                     <td>{val.divisi}</td>
-                    <td>{val.tanggal}</td>
+                    <td>{val.tanggal.toString().slice(0,10)}</td>
                     <td>{val.deskripsi}</td>
                     <td>
                         <button onClick={()=>{this.toggleEdit(val.id_perjanjian)}} className="btn btn-warning">Edit</button>

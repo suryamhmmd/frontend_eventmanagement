@@ -54,11 +54,13 @@ export class inputNotulensi extends Component {
         })
     }
 
-    renderTextField = (name, label, type, shrink)=>{
+    renderTextField = (name, label, type, shrink, multiple, row)=>{
         return(
             <TextField 
                 style={{backgroundColor:'white'}} 
                 fullWidth 
+                multiline={multiple}
+                rows={row}
                 className="rounded mt-3"
                 name={name}
                 size="small" 
@@ -81,7 +83,7 @@ export class inputNotulensi extends Component {
                     {this.renderTextField('nama_rapat', 'Nama Rapat', '', null)}
                     {this.renderTextField('tanggal', 'Tanggal', 'date', {shrink: true,})}
                     {this.renderTextField('tempat', 'Tempat', '', )}
-                    {this.renderTextField('isi', 'Isi Rapat', '', )}
+                    {this.renderTextField('isi', 'Isi Rapat', '', null, true, 4)}
                 </div>
             </div>
             <button onClick={this.submit} className="btn btn-lg btn-dark mt-3 align-self-end">Input</button>
